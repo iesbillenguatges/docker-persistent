@@ -21,7 +21,7 @@ Aquest projecte mostra com provar **persistència real de dades entre contenidor
 2. Executa:
 
 ```bash
-$ docker -it --name alpine1 -v persistent:/dades alpine
+$ docker run -it --name alpine1 -v persistent:/dades alpine
 # echo 'Text de Demo 1' > /dades/demo1.txt
 # exit
 ```
@@ -32,7 +32,7 @@ $ docker -it --name alpine1 -v persistent:/dades alpine
 $ docker ps -a
 $ docker stop alpine1
 $ docker rm alpine1
-$ docker -it --name alpine2 -v persistent:/dades alpine
+$ docker run -it --name alpine2 -v persistent:/dades alpine
 # echo 'Text de Demo 2' > /dades/demo2.txt
 # cd /dades
 # mkdir carpeta
@@ -45,7 +45,7 @@ $ docker -it --name alpine2 -v persistent:/dades alpine
 $ docker ps -a
 $ docker stop alpine2
 $ docker rm alpine2
-$ docker -it --name alpine3 -v persistent:/dades alpine
+$ docker run -it --name alpine3 -v persistent:/dades alpine
 # cd /dades
 # ls
 # exit
