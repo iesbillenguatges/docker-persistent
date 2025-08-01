@@ -7,9 +7,11 @@ Aquest projecte mostra com provar **persistència real de dades entre contenidor
 ## 🔍 Què es demostra?
 
 - Crear un **volum Docker** persistent.
-- Llançar un contenidor que escriu dades al volum.
-- Llançar un segon contenidor que llegeix aquestes dades.
+- Llançar un contenidor que escriu dades al volum. Eixir d'ell. Borrar-lo.
+- Llançar un segon contenidor que llegeix aquestes dades. Que n'escriga d'altres i que cree una carpeta. Eixir d'ell. Borrar-lo.
+- Llançarem un 3r contenidor i que comprove que hi està tot
 - Tot dins d’un entorn **realment persistent** com és GitHub Codespaces.
+- -Finalment borrare'm el volum persistent
 
 ---
 
@@ -19,13 +21,18 @@ Aquest projecte mostra com provar **persistència real de dades entre contenidor
 2. Executa:
 
 ```bash
-docker compose up
+$ docker -it --name alpine1 -v persistent:/dades alpine
+# echo 'Text de Demo 1' > /dades/demo1.txt
+# exit
 ```
 
-3. Veuràs a la consola:
+3. Després:
 
-```
-Hola des del primer contenidor
+```bash
+$ docker ps -a
+$ docker -it -v persistent:/dades alpine
+# echo 'Text de Demo 1' > /dades/demo1.txt
+# exit
 ```
 
 ---
