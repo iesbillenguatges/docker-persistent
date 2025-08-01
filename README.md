@@ -11,7 +11,7 @@ Aquest projecte mostra com provar **persistència real de dades entre contenidor
 - Llançar un segon contenidor que llegeix aquestes dades. Que n'escriga d'altres i que cree una carpeta. Eixir d'ell. Borrar-lo.
 - Llançarem un 3r contenidor i que comprove que hi està tot
 - Tot dins d’un entorn **realment persistent** com és GitHub Codespaces.
-- -Finalment borrare'm el volum persistent
+- Finalment borrare'm el volum persistent
 
 ---
 
