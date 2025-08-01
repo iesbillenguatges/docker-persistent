@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  writer:
+    image: alpine
+    command: sh -c "echo 'Hola des del primer contenidor' > /dades/missatge.txt && sleep 5"
+    volumes:
+      - dades:/dades
+
+  reader:
+    image: alpine
+    command: sh -c "cat /dades/missatge.txt && sleep 5"
+    depends_on:
+      - writer
+    volumes:
+      - dades:/dades
+
+volumes:
+  dades:
