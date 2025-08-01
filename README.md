@@ -39,7 +39,28 @@ $ docker -it --name alpine2 -v persistent:/dades alpine
 # ls
 # exit
 ```
+4. Després farem:
 
+```bash
+$ docker ps -a
+$ docker stop alpine2
+$ docker rm alpine2
+$ docker -it --name alpine3 -v persistent:/dades alpine
+# cd /dades
+# ls
+# exit
+```
+
+5. Finalment llistarem i eliminarem el volum:
+
+```bash
+$ docker ps -a
+$ docker stop alpine3
+$ docker rm alpine3
+$ docker volume ls
+$ docker volume rm persistent
+$ docker volume ls
+```
 ---
 
 ## 🧠 Què és `.devcontainer/`?
@@ -50,16 +71,6 @@ Això ens permet:
 - Tenir **Docker instal·lat i funcional dins del Codespace**.
 - Preinstal·lar extensions útils (com l’extensió de Docker per VS Code).
 - Executar ordres inicials com `docker version` per verificar que Docker funciona.
-
----
-
-## 📁 Contingut del projecte
-
-| Arxiu / Carpeta             | Descripció                                                                 |
-|-----------------------------|----------------------------------------------------------------------------|
-| `.devcontainer/devcontainer.json` | Configura Docker dins de Codespaces.                                     |
-| `docker-compose.yml`        | Defineix dos contenidors que comparteixen un volum persistent.            |
-| `README.md`                 | Aquest document explicatiu.                                               |
 
 ---
 
