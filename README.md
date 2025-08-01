@@ -30,8 +30,13 @@ $ docker -it --name alpine1 -v persistent:/dades alpine
 
 ```bash
 $ docker ps -a
-$ docker -it -v persistent:/dades alpine
-# echo 'Text de Demo 1' > /dades/demo1.txt
+$ docker stop alpine1
+$ docker rm alpine1
+$ docker -it --name alpine2 -v persistent:/dades alpine
+# echo 'Text de Demo 2' > /dades/demo2.txt
+# cd /dades
+# mkdir carpeta
+# ls
 # exit
 ```
 
